@@ -65,8 +65,8 @@ Article.fetchAll = callback => {
 Article.numWordsAll = () => {
   return Article.all.map(ele => {
     return ele.body.split(' ').length();
-  }).reduce(function(acc, val){ return acc + val }
-  , 0)
+  }).reduce(function(acc, val) {return acc + val;}
+  , 0);
 };
 
 // TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names. You will
@@ -74,7 +74,9 @@ Article.numWordsAll = () => {
 Article.allAuthors = () => {
   return Article.all.map(ele => {
     return ele.author;
-   }).reduce(acc, curr);
+   }).reduce(function(acc, val) {if(acc.indexOf(val) < 0) {acc.push(val)};
+   return acc;
+ }, []);
 };
 
 Article.numWordsByAuthor = () => {
